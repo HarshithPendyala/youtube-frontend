@@ -3,15 +3,50 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const VideoCard = ({ video }) => {
+	const extractTime = (duration) => {
+		const matchWithHours = duration.match(/PT(\d{1,2})H(\d{1,2})M(\d{1,2})S/);
+		const matchWithoutHours = duration.match(/PT(\d{1,2})M(\d{1,2})S/);
+		const matchWithoutMinutes = duration.match(/PT(\d{1,2})S/);
+
+		if (matchWithHours) {
+			const hours = matchWithHours[1];
+			const minutes = matchWithHours[2];
+			const seconds = matchWithHours[3];
+
+			const formattedTime = `${hours.padStart(2, "0")}:${minutes.padStart(
+				2,
+				"0"
+			)}:${seconds.padStart(2, "0")}`;
+			return formattedTime;
+		} else if (matchWithoutHours) {
+			const minutes = matchWithoutHours[1];
+			const seconds = matchWithoutHours[2];
+
+			const formattedTime = `${minutes.padStart(2, "0")}:${seconds.padStart(
+				2,
+				"0"
+			)}`;
+			return formattedTime;
+		} else if (matchWithoutMinutes) {
+			const seconds = matchWithoutMinutes[1];
+
+			const formattedTime = `${seconds.padStart(2, "0")}`;
+			return formattedTime;
+		} else {
+			return null;
+		}
+	};
 	return (
 		<div className="text-white py-2 m-2 ">
-			<div>
+			<div className="relative">
 				<img
 					alt={video.snippet?.title}
 					src={video.snippet?.thumbnails?.medium?.url}
 					className="rounded-xl cursor-pointer w-[480px] h-[300px] "
 				/>
-				<div>{video.contentDetails.duration}</div>
+				<div className="absolute bottom-0 right-2 bg-black text-stone-100 py-1 px-3 rounded-md m-1">
+					{extractTime(video.contentDetails.duration)}
+				</div>
 			</div>
 			<div className="flex my-2">
 				<div className="mx-3">
