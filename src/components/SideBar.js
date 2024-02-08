@@ -5,6 +5,7 @@ import {
 	faFilm,
 	faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
 	return (
@@ -16,7 +17,12 @@ const SideBar = () => {
 						className="text-stone-300"
 						size="xl"
 					/>{" "}
-					<span className="font-bold text-xl pl-4 text-stone-200"> Home </span>
+					<Link to={"/"}>
+						<span className="font-bold text-xl pl-4 text-stone-200">
+							{" "}
+							Home{" "}
+						</span>
+					</Link>
 				</li>
 				<li className="py-2 px-4 cursor-pointer my-2 hover:bg-stone-600">
 					<FontAwesomeIcon icon={faFilm} size="xl" className="text-stone-300" />{" "}

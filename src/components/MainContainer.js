@@ -7,11 +7,9 @@ import { addVideoList } from "../utils/videoListSlice";
 const MainContainer = () => {
 	const dispatch = useDispatch();
 	const getPopularVideos = async () => {
-		const url =
-			"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=AIzaSyB65viqbBeAUUIA5CnzWLmito3y42cZz2s";
+		const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=${process.env.REACT_APP_YOUTUBE_APIKEY}`;
 		const data = await fetch(url);
 		const jsonData = await data.json();
-		console.log(jsonData);
 		dispatch(addVideoList(jsonData.items));
 	};
 
