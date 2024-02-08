@@ -11,7 +11,7 @@ import { toggleSideBar } from "../utils/sideBarSlice";
 
 const Navbar = () => {
 	const dispatch = useDispatch();
-	const [searchRef, setSearchRef] = useState(null);
+	const [searchRef, setSearchRef] = useState("");
 
 	const handleSideBarToggle = () => {
 		dispatch(toggleSideBar());
@@ -26,7 +26,11 @@ const Navbar = () => {
 	};
 
 	useEffect(() => {
-		getSearchSuggestions();
+		const timer = setTimeout(() => getSearchSuggestions(), 200);
+
+		return () => {
+			clearTimeout(timer);
+		};
 	}, [searchRef]);
 	return (
 		<div className="grid grid-flow-col items-center ">
