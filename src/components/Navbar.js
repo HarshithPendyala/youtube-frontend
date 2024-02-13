@@ -76,9 +76,10 @@ const Navbar = () => {
 						onFocus={() => setShowSuggestions(true)}
 						onBlur={() => setShowSuggestions(false)}
 					/>
-					<img
-						src="https://www.freeiconspng.com/uploads/search-icon-png-2.png"
-						className="w-10 h-10 p-2 bg-stone-700 rounded-r-full border border-stone-500 cursor-pointer"
+					<FontAwesomeIcon
+						icon={faSearch}
+						className="py-2.5 px-3 bg-stone-700 rounded-r-full"
+						size="lg"
 					/>
 				</div>
 				{showSuggestions && (

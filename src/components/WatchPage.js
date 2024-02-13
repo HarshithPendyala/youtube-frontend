@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeSideBar } from "../utils/sideBarSlice";
+import VideoComments from "./VideoComments";
 
 const WatchPage = () => {
 	const [URLSearchParams, setURLSearchParams] = useSearchParams();
@@ -21,6 +22,7 @@ const WatchPage = () => {
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowFullScreen
 			></iframe>
+			<VideoComments />
 		</div>
 	);
 };
