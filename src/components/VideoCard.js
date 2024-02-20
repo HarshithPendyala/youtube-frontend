@@ -37,7 +37,7 @@ const VideoCard = ({ video }) => {
 		}
 	};
 	return (
-		<div className="text-white py-2 m-2 ">
+		<div className="text-white py-2 m-1 ">
 			<div className="relative">
 				<img
 					alt={video.snippet?.title}

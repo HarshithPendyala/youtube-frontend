@@ -99,7 +99,7 @@ const CommentList = ({ comments }) => (
 			<>
 				<Comment key={i} data={comment} />
 				{comment.replies && (
-					<div className="ml-6 border-l border-l-stone-300 p-2">
+					<div className="ml-6 border-l border-l-stone-300 pl-4">
 						<CommentList comments={comment.replies} />
 					</div>
 				)}
