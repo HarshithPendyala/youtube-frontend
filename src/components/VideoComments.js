@@ -96,14 +96,14 @@ const Comment = ({ data }) => {
 const CommentList = ({ comments }) => (
 	<>
 		{comments.map((comment, i) => (
-			<>
-				<Comment key={i} data={comment} />
+			<div key={i}>
+				<Comment data={comment} />
 				{comment.replies && (
 					<div className="ml-6 border-l border-l-stone-300 pl-4">
 						<CommentList comments={comment.replies} />
 					</div>
 				)}
-			</>
+			</div>
 		))}
 	</>
 );
