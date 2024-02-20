@@ -28,6 +28,12 @@ const WatchPage = () => {
 			</div>
 			<div className="w-full">
 				<LiveChat />
+				{/* <form className="mx-1 p-2">
+					<input type="text" placeholder="enter a message" />
+					<button className="mx-2 cursor-pointer border border-stone-400 bg-stone-500 px-2">
+						Send
+					</button>
+				</form> */}
 			</div>
 		</div>
 	);
